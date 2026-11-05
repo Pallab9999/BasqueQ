@@ -1,0 +1,45 @@
+---
+description: "Hackathon guardrails: solve the stated requirements with the smallest correct, safe implementation; avoid scope creep and unnecessary architecture."
+alwaysApply: true
+---
+
+# Hackathon Simplicity Rules
+
+## Priorities
+1. Correctness and safety.
+2. Explicit judging requirements.
+3. The smallest clear implementation.
+4. Readability and ease of demonstration.
+
+## Before coding
+- Inspect the existing project structure and conventions first.
+- Identify the exact requirement and acceptance criteria.
+- Propose the smallest viable change before substantial implementation.
+- Reuse existing code, platform features, and installed dependencies.
+- Ask before adding a new dependency or changing architecture.
+
+## While coding
+- Implement only requested functionality; no speculative features.
+- Prefer direct, readable code over layers, factories, registries, or generic frameworks.
+- Do not introduce an abstraction for a single use case.
+- Do not split small cohesive logic across many files.
+- Do not refactor unrelated working code.
+- Do not add configuration options with only one required value.
+- Do not optimize without evidence of a real bottleneck.
+- Keep the current stack and architecture unless a requirement makes a change necessary.
+
+## Safety and correctness are not optional
+- Keep necessary authentication, authorization, validation, error handling, and accessibility.
+- Never hardcode secrets or weaken security to reduce code.
+- Do not hide errors or claim tests passed unless they were run.
+- Prefer the smallest meaningful test for non-trivial logic and critical user journeys.
+
+## Before finishing
+Review the diff and remove unnecessary code, files, dependencies, and comments.
+Confirm the app starts and the core judging flow works.
+Report what changed, what was tested, and anything not verified.
+
+## Decision test
+For every added component, file, dependency, or abstraction, ask:
+"Which explicit requirement needs this?"
+If there is no clear answer, do not add it.
